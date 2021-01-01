@@ -34,10 +34,6 @@ public class SignController {
         return "index_logged";
     }
 
-   /* @PostMapping("/logsuccess")
-    public void helloUser(Principal principal){
-        User userName = userRepository.findUserByUsername(principal.getName());
-    }*/
 
 
 }

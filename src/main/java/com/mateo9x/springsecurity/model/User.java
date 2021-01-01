@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -26,16 +27,10 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private final Long id;
 
-    @NotNull(message = "can't be null!")
     private final String username;
-    @NotNull(message = "name can't be null")
     private final String firstname;
-    @NotNull(message = "surname can't be null")
     private final String lastname;
-    @Email(message = "Email should be valid")
     private final String email;
-    @NotNull
-    @NotEmpty
     private String password;
 
     @Override
