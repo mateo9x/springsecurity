@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+        </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#" th:href="@{'/'}">Home Page</a></li>
+            </ul>
+        </div>
+</nav>
+        <div class="container-fluid text-center">
+
+
+
+<form id="loginForm" th:action="@{/login}" method="post">
+    <fieldset>
+        <legend>Please Login</legend>
+        <div th:if="${param.error}" class="alert alert-error">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username"/>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"/>
+        <div class="form-actions">
+            <button type="submit" class="btn">Log in</button>
+        </div>
+    </fieldset>
+</form>
+            <div id="create-account"> <a href="#" th:href="@{'/register/'}">Create Account</a></div>
+
+        </div>
+
+
+
+
+<footer class="container-fluid text-center">
+    <p>@2020</p>
+</footer>
+</body>
+</html>
