@@ -9,7 +9,8 @@ This is my non-profit project to practice selected element of Java Spring.
 ## 2. Info
 
 This app is in progress. User can click "Login" button to be redirected to sign in to website. 
-If he hasn't got account, there is a link to register form, where He can create new account to the website.
+If he hasn't got account, there is a link to register form, where he can create new account to the website.
+To end sessions just click logout.
 
 Comitted through Git Bash.
 
