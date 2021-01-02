@@ -19,14 +19,14 @@
         </div>
 
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home Page</a></li>
+            <li class="active"><a href="#" th:href="@{'/logsuccess'}">Home Page</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#" th:href="@{'/logout'}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" th:href="@{'/myprofile'}"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+            <li><a href="#" th:href="@{'/logout'}"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
         </ul>
 
     </div>
@@ -34,12 +34,36 @@
 
 <div class="container-fluid text-center">
 
-    <hr>
-    <h1>Welcome home !</h1>
-    <br>
-    <p>Click Logout button, to end session.<br></p>
-    <hr>
-    <h3>Enjoy!</h3>
+    <table class="custom-table">
+        <tbody th:each="userlog: ${user}">
+        <tr>
+            <th scope="row">User ID:</th>
+            <td th:text="${userlog.id}" />
+        </tr>
+        <tr>
+            <th scope="row">Username:</th>
+            <td th:text="${userlog.username}" />
+        </tr>
+        <tr>
+            <th scope="row">Firstname:</th>
+            <td th:text="${userlog.firstname}" />
+        </tr>
+        <tr>
+            <th scope="row">Lastname:</th>
+            <td th:text="${userlog.lastname}" />
+        </tr>
+        <tr>
+            <th scope="row">Email:</th>
+            <td th:text="${userlog.email}" />
+        </tr>
+        <tr>
+            <th scope="row">Password:</th>
+            <td th:text="${userlog.password}" />
+        </tr>
+        </tbody>
+    </table>
+
+
 
 
 </div>

@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/register")
@@ -30,13 +31,30 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String registrationProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
+    public String registrationProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm,BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "register";
-        }
-        else {
+        } else {
             userRepository.save(registrationForm.toUser(passwordEncoder));
             return "redirect:/login";
         }
     }
+
+  /*  @PostMapping
+    public String registrationProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm,User user, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return "register";
+        }
+        else {
+
+            User isEmailExist = userRepository.findUserByEmail(user.getEmail());
+            if(isEmailExist != null) {
+                System.out.println("User with this email already exist!");
+                return "register";
+            }
+                userRepository.save(registrationForm.toUser(passwordEncoder));
+                return "redirect:/login";
+
+        }
+    } */
 }
