@@ -30,7 +30,7 @@ public class RegistrationController {
         return "register";
     }
 
-    @PostMapping
+   @PostMapping
     public String registrationProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm,BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";

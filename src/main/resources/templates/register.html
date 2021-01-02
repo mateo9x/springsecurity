@@ -33,23 +33,23 @@
             <legend>Please fill a form below</legend>
 
             <div>
-                <label>username</label><input type="text" name="username" th:field="*{username}"/>
+                <label>Username:</label><input type="text" name="username" th:field="*{username}"/>
                 <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"/>
             </div>
             <div>
-                <label>firstName</label><input type="text" name="firstName" th:field="*{firstname}"/>
+                <label>First Name:</label><input type="text" name="firstName" th:field="*{firstname}"/>
                 <p th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"/>
             </div>
             <div>
-                <label>lastName</label><input type="text"  name="lastName" th:field="*{lastname}"/>
+                <label>Last Name:</label><input type="text"  name="lastName" th:field="*{lastname}"/>
                 <p th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"/>
             </div>
             <div>
-                <label>email</label><input type="email" name="email" th:field="*{email}"/>
+                <label>Email:</label><input type="email" name="email" th:field="*{email}"/>
                 <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
             </div>
             <div>
-                <label>password</label><input type="password" name="password" th:field="*{password}"/>
+                <label>Password:</label><input type="password" name="password" th:field="*{password}"/>
                 <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
             </div>
             <div class="form-actions">
