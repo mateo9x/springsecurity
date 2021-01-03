@@ -16,6 +16,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -36,7 +37,8 @@ public class SignController {
     }
 
     @GetMapping("/logsuccess")
-    public String logSuccess(){
+    public String logSuccess(HttpSession session, Principal principal){
+        session.setAttribute("sessionAttribute", principal.getName());
         return "index_logged";
     }
 
