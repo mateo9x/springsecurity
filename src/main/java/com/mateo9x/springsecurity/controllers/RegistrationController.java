@@ -30,31 +30,23 @@ public class RegistrationController {
         return "register";
     }
 
-   @PostMapping
-    public String registrationProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm,BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "register";
-        } else {
-            userRepository.save(registrationForm.toUser(passwordEncoder));
-            return "redirect:/login";
-        }
-    }
 
-  /*  @PostMapping
-    public String registrationProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm,User user, BindingResult bindingResult) {
+    @PostMapping
+    public String registrationProcess(@Valid @ModelAttribute RegistrationForm registrationForm,User user, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
             return "register";
         }
         else {
 
+            User isUsernameExist = userRepository.findUserByUsername(user.getUsername());
             User isEmailExist = userRepository.findUserByEmail(user.getEmail());
-            if(isEmailExist != null) {
-                System.out.println("User with this email already exist!");
+            if(isEmailExist != null || isUsernameExist !=null) {
+                System.out.println("User with this email/username already exist!");
                 return "register";
             }
                 userRepository.save(registrationForm.toUser(passwordEncoder));
                 return "redirect:/login";
 
         }
-    } */
+    }
 }

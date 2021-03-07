@@ -48,21 +48,17 @@ public class SignController {
         return "myprofile";
     }
 
-    @GetMapping("/resetPassword")
+    @GetMapping("/changePassword")
     public String resetPassword(Model model,Principal principal){
         model.addAttribute("user", userRepository.findUserByUsername(principal.getName()));
 
         return "passwordChange";
     }
     @PostMapping("/passwordChange")
-    public String passwordChangeProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
+    public String passwordChangeProcess(@Valid @ModelAttribute ("user") RegistrationForm registrationForm) {
 
-            return "passwordChange";
-        } else {
             userRepository.save(registrationForm.toUser(passwordEncoder));
             return "myprofile";
-        }
     }
 
 
